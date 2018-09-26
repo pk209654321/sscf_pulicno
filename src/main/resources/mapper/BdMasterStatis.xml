@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.publicno.dao.BdMasterStatisDao">
+
+	<select id="selectBdMasterStatisList"
+		parameterType="com.sscf.publicno.dto.BdMasterStatisDto"
+		resultType="com.sscf.publicno.entity.BdMasterStatis">
+		select
+		phone,
+		nick_name,
+		wx_name,
+		sum(live_browse) live_browse,
+		sum(special_read) special_read,
+		source_user,
+		sum(live_day) live_day,
+		avg(stay_time) stay_time,
+		sum(read_day) read_day,
+		avg(read_time) read_time,
+		sum(add_browse) add_browse,
+		create_time,
+		sum(live_day_zhao) live_day_zhao,
+		avg(stay_time_zhao) stay_time_zhao,
+		sum(read_day_zhao) read_day_zhao,
+		avg(read_time_zhao) read_time_zhao,
+		sum(add_browse_zhao) add_browse_zhao
+		from bd_master_statis
+		where 1=1
+		
+		<if test="source_user!=null">
+			and source_user=#{source_user}
+		</if>
+		<if test="phone!=null and phone!=''">
+			and phone=#{phone}
+		</if>
+		<if test="nick_name!=null and nick_name!=''">
+			and nick_name=#{nick_name}
+		</if>
+		<if test="wx_name!=null and wx_name!=''">
+			and wx_name=#{wx_name}
+		</if>
+		<if test="start_time!=null and start_time!=''">
+			and create_time &gt;= DATE_FORMAT(#{start_time},'%Y-%m-%d')
+		</if>
+		<if test="end_time!=null and end_time!=''">
+			and create_time &lt;= DATE_FORMAT(#{end_time},'%Y-%m-%d')
+		</if>
+		<if
+			test="sort_type!=null and sort_type!='' and sort_field!=null and sort_field!=''">
+			order by ${sort_field} sort_type
+		</if>
+		group by phone
+		<if test="rows != 0">
+			LIMIT #{offset}, #{rows}
+		</if>
+	</select>
+
+	<select id="selectBdMasterStatisCount"
+		parameterType="com.sscf.publicno.dto.BdMasterStatisDto" resultType="int">
+		select count(*) from (select * from bd_master_statis 
+		where 1=1 
+		<if test="source_user!=null">
+			and source_user=#{source_user}
+		</if>
+		<if test="phone!=null and phone!=''">
+			and phone=#{phone}
+		</if>
+		<if test="nick_name!=null and nick_name!=''">
+			and nick_name=#{nick_name}
+		</if>
+		<if test="wx_name!=null and wx_name!=''">
+			and wx_name=#{wx_name}
+		</if>
+		<if test="start_time!=null and start_time!=''">
+			and create_time &gt;= DATE_FORMAT(#{start_time},'%Y-%m-%d')
+		</if>
+		<if test="end_time!=null and end_time!=''">
+			and create_time &lt;= DATE_FORMAT(#{end_time},'%Y-%m-%d')
+		</if>
+		group by phone) t
+	</select>
+</mapper>
