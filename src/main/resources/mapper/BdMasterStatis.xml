@@ -13,14 +13,18 @@
 		sum(special_read) special_read,
 		source_user,
 		sum(live_day) live_day,
+		avg(live_day) avg_live_day,
 		avg(stay_time) stay_time,
 		sum(read_day) read_day,
+		avg(read_day) avg_read_day,
 		avg(read_time) read_time,
 		sum(add_browse) add_browse,
 		create_time,
 		sum(live_day_zhao) live_day_zhao,
+		avg(live_day_zhao) avg_live_day_zhao,
 		avg(stay_time_zhao) stay_time_zhao,
 		sum(read_day_zhao) read_day_zhao,
+		avg(read_day_zhao) avg_read_day_zhao,
 		avg(read_time_zhao) read_time_zhao,
 		sum(add_browse_zhao) add_browse_zhao
 		from bd_master_statis

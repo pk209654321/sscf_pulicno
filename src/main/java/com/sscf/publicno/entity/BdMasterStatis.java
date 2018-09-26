@@ -20,6 +20,42 @@ public class BdMasterStatis {
 	private Integer read_time_zhao;
 	private Integer add_browse_zhao;
 	private String create_time;
+	private Integer avg_live_day;
+	private Integer avg_read_day;
+	private Integer avg_live_day_zhao;
+	private Integer avg_read_day_zhao;
+
+	public Integer getAvg_live_day() {
+		return avg_live_day;
+	}
+
+	public void setAvg_live_day(Integer avg_live_day) {
+		this.avg_live_day = avg_live_day;
+	}
+
+	public Integer getAvg_read_day() {
+		return avg_read_day;
+	}
+
+	public void setAvg_read_day(Integer avg_read_day) {
+		this.avg_read_day = avg_read_day;
+	}
+
+	public Integer getAvg_live_day_zhao() {
+		return avg_live_day_zhao;
+	}
+
+	public void setAvg_live_day_zhao(Integer avg_live_day_zhao) {
+		this.avg_live_day_zhao = avg_live_day_zhao;
+	}
+
+	public Integer getAvg_read_day_zhao() {
+		return avg_read_day_zhao;
+	}
+
+	public void setAvg_read_day_zhao(Integer avg_read_day_zhao) {
+		this.avg_read_day_zhao = avg_read_day_zhao;
+	}
 
 	public Integer getLive_day_zhao() {
 		return live_day_zhao;

@@ -18,9 +18,15 @@ public class BdMasterStatisDto extends PageInfo{
 	private String end_time;
 	private Integer source_user;
 	private String sort_type;
-	private String sort_filed;
+	private String sort_field;
 	
 	
+	public String getSort_field() {
+		return sort_field;
+	}
+	public void setSort_field(String sort_field) {
+		this.sort_field = sort_field;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -64,12 +70,5 @@ public class BdMasterStatisDto extends PageInfo{
 	public void setSort_type(String sort_type) {
 		this.sort_type = sort_type;
 	}
-	public String getSort_filed() {
-		return sort_filed;
-	}
-	public void setSort_filed(String sort_filed) {
-		this.sort_filed = sort_filed;
-	}
-	
 	
 }
